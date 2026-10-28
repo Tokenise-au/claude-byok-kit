@@ -78,6 +78,7 @@ describe("formatUsd", () => {
   it("shows cents, or four decimals under a cent", () => {
     expect(formatUsd(0)).toBe("$0.00");
     expect(formatUsd(0.0034)).toBe("$0.0034");
+    expect(formatUsd(0.0000145)).toBe("under $0.0001");
     expect(formatUsd(1.5)).toBe("$1.50");
   });
 });

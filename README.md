@@ -8,6 +8,8 @@ It is a small TypeScript library (no dependencies besides the official [Anthropi
 
 > Status: 0.1.0, not yet published to npm. Not affiliated with or endorsed by Anthropic.
 
+**Pasting a key is the only approved way today, but it isn't the best one.** [`oauth-proposal/`](oauth-proposal/) proposes a "Sign in with Anthropic" for apps: the visitor approves an app on an Anthropic page, sets a monthly limit and the allowed models, and the app gets a scoped, revocable token billed to the visitor's API credits. It includes a [spec](oauth-proposal/SPEC.md) and a working local simulation of the whole flow.
+
 ## Claude subscriptions can't be used here
 
 **This kit does not, and cannot, use a Claude Free, Pro or Max subscription.** Anthropic's terms reserve subscription sign-ins for Anthropic's own apps (Claude.ai, Claude Code and the like). Its [developer terms](https://code.claude.com/docs/en/legal-and-compliance#authentication-and-credential-use) say third-party developers may not offer Claude.ai login in their own apps, route requests through Free, Pro or Max credentials, or collect Claude.ai credentials or session tokens. Anthropic made this explicit in early 2026, began blocking such use, and says it may enforce the rule without notice. A workaround could get your visitors' accounts banned.
@@ -155,6 +157,12 @@ npm run check
 ```
 
 That runs ESLint, the TypeScript checker, the Vitest suite and the build. The tests never touch the network: they run the real SDK against a stubbed `fetch`, with a made-up key. There's no real key anywhere in this repository.
+
+To try the proposed OAuth flow locally, see [oauth-proposal/README.md](oauth-proposal/README.md):
+
+```bash
+npm run oauth-demo
+```
 
 ## Licence
 

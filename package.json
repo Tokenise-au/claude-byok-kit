@@ -25,12 +25,13 @@
     "node": ">=20"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json && node scripts/build-browser.mjs",
+    "build": "tsc -p tsconfig.build.json && node scripts/build-browser.mjs && node scripts/build-oauth.mjs",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "test": "vitest run",
     "check": "npm run lint && npm run typecheck && npm test && npm run build",
-    "example": "npm run build && node example/serve.mjs"
+    "example": "npm run build && node example/serve.mjs",
+    "oauth-demo": "npm run build && node dist/oauth/stand-in.mjs"
   },
   "keywords": [
     "anthropic",

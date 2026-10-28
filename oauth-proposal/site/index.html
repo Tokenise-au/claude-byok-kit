@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Demo site: sign in with Anthropic (simulated)</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script type="module" src="/app.js"></script>
+  </head>
+  <body>
+    <main>
+      <p class="banner">
+        SIMULATION of a proposed flow. Anthropic doesn't offer "Sign in with Anthropic" for apps today. A local stand-in
+        plays Anthropic's part.
+      </p>
+      <h1>Demo site</h1>
+      <p class="lead">
+        Ask Claude, paid from your own Anthropic API credits. You connect your account once, set a monthly limit, and
+        never copy a key.
+      </p>
+
+      <section id="connect-section">
+        <button id="sign-in" type="button">Sign in with Anthropic (simulated)</button>
+        <p class="note">
+          You'll choose a monthly spend limit and which models this site may use. The site gets a token that only works
+          within those limits. You can revoke it at any time.
+        </p>
+      </section>
+
+      <section id="connected-section" hidden>
+        <p id="grant" class="grant"></p>
+        <form id="ask-form">
+          <label for="model">Model</label>
+          <select id="model"></select>
+          <label for="question">Question</label>
+          <textarea id="question" rows="3" placeholder="Why do satellites in low orbit fade from view at night?"></textarea>
+          <div class="buttons">
+            <button id="ask" type="submit">Ask</button>
+            <button id="disconnect" type="button" class="secondary">Disconnect</button>
+          </div>
+        </form>
+        <div id="answer" class="answer" aria-live="polite"></div>
+        <p class="note">Manage this connection on the stand-in's <a id="connected-apps">Connected apps</a> page.</p>
+      </section>
+
+      <p id="error" class="error" role="alert" hidden></p>
+    </main>
+  </body>
+</html>
