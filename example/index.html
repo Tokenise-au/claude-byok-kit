@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ask Claude with your own key</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script type="module" src="/app.js"></script>
+  </head>
+  <body>
+    <main>
+      <h1>Ask Claude with your own API key</h1>
+
+      <section class="explain" aria-labelledby="how">
+        <h2 id="how">How this works</h2>
+        <ul>
+          <li>
+            Your key goes from this page <strong>straight to api.anthropic.com</strong>. This site's server never
+            receives it, and the page's security policy blocks it from being sent anywhere else.
+          </li>
+          <li>
+            Questions are paid from <strong>your Anthropic API credits</strong>. This is separate from a Claude Pro or
+            Max subscription, which websites aren't allowed to use.
+          </li>
+          <li>
+            Use a <strong>dedicated key</strong> in its own Console workspace with a monthly spend limit, so a leaked
+            key can only cost what you allowed. Delete it when you're done.
+          </li>
+          <li>
+            This page stops after <strong id="limit"></strong> of spending, caps answers at
+            <strong id="cap"></strong> tokens, and only uses the models listed below.
+          </li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="key-heading">
+        <h2 id="key-heading">Your key</h2>
+        <form id="key-form" autocomplete="off">
+          <label for="key">Anthropic API key</label>
+          <input id="key" type="password" spellcheck="false" autocapitalize="off" placeholder="sk-ant-api03-…" />
+          <label class="check" id="remember-row">
+            <input id="remember" type="checkbox" /> Remember on this device
+          </label>
+          <button type="submit">Use this key</button>
+        </form>
+        <div id="key-set" hidden>
+          <p id="key-status"></p>
+          <button id="forget" type="button">Forget my key</button>
+        </div>
+      </section>
+
+      <section aria-labelledby="ask-heading">
+        <h2 id="ask-heading">Ask</h2>
+        <form id="ask-form">
+          <label for="model">Model</label>
+          <select id="model"></select>
+          <label for="question">Question</label>
+          <textarea id="question" rows="3" placeholder="What does a satellite's inclination tell you?"></textarea>
+          <div class="buttons">
+            <button id="ask" type="submit">Ask</button>
+            <button id="stop" type="button" hidden>Stop</button>
+          </div>
+        </form>
+        <p id="error" class="error" role="alert" hidden></p>
+        <div id="answer" class="answer" aria-live="polite"></div>
+        <p id="notice" class="notice" hidden></p>
+      </section>
+
+      <p id="cost" class="cost"></p>
+    </main>
+  </body>
+</html>

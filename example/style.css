@@ -1,0 +1,149 @@
+:root {
+  --bg: #fbfaf7;
+  --fg: #1f1e1c;
+  --muted: #6b6862;
+  --line: #dedad2;
+  --panel: #f2efe8;
+  --accent: #b5532f;
+  --error: #a32121;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1b19;
+    --fg: #ecebe7;
+    --muted: #a19d95;
+    --line: #3a3834;
+    --panel: #262522;
+    --accent: #e08a62;
+    --error: #ff8a80;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 16px/1.5 system-ui, sans-serif;
+}
+
+main {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+h1 {
+  font-size: 1.6rem;
+  margin: 0 0 1.5rem;
+}
+
+h2 {
+  font-size: 1.05rem;
+  margin: 2rem 0 0.75rem;
+}
+
+.explain {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.25rem 1.25rem;
+}
+
+.explain ul {
+  padding-left: 1.1rem;
+}
+
+.explain li + li {
+  margin-top: 0.5rem;
+}
+
+label {
+  display: block;
+  margin: 0.75rem 0 0.25rem;
+  font-weight: 600;
+}
+
+label.check {
+  font-weight: 400;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+input[type="password"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--fg);
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+button[type="button"] {
+  background: transparent;
+  color: var(--accent);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.answer {
+  white-space: pre-wrap;
+  margin-top: 1rem;
+}
+
+.answer:empty {
+  display: none;
+}
+
+.notice {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.error {
+  color: var(--error);
+}
+
+.cost {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+[hidden] {
+  display: none !important;
+}
